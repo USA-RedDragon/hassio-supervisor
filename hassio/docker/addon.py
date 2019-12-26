@@ -142,6 +142,9 @@ class DockerAddon(DockerInterface):
                     self.sys_hardware.serial_devices | self.sys_hardware.serial_by_id
                 )
 
+            for device in self.sys_hardware.hidraw_devices:
+                devices.append(f"{device}:{device}:rwm")
+
             for device in serial_devs:
                 devices.append(f"{device}:{device}:rwm")
 

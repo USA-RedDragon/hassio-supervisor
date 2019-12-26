@@ -69,6 +69,16 @@ class Hardware:
         return dev_list
 
     @property
+    def hidraw_devices(self) -> Set[str]:
+        """Return all hidraw devices."""
+        dev_list: Set[str] = set()
+        for device in self.context.list_devices(subsystem="hidraw"):
+            if "DEVNAME" in device.properties:
+                dev_list.add(device.properties["NAME"].replace('"', ""))
+
+        return dev_list
+
+    @property
     def disk_devices(self) -> Set[str]:
         """Return all disk devices."""
         dev_list: Set[str] = set()

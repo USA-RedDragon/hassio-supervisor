@@ -10,6 +10,7 @@ from ..const import (
     ATTR_SERIAL,
     ATTR_DISK,
     ATTR_GPIO,
+    ATTR_HIDRAW,
     ATTR_AUDIO,
     ATTR_INPUT,
     ATTR_OUTPUT,
@@ -32,6 +33,7 @@ class APIHardware(CoreSysAttributes):
             ATTR_INPUT: list(self.sys_hardware.input_devices),
             ATTR_DISK: list(self.sys_hardware.disk_devices),
             ATTR_GPIO: list(self.sys_hardware.gpio_devices),
+            ATTR_HIDRAW: list(self.sys_hardware.hidraw_devices),
             ATTR_AUDIO: self.sys_hardware.audio_devices,
         }
 
